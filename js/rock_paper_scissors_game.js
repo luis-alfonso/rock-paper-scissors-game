@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+let computerScore = 0;
+let playerScore = 0;
+console.log("New game");      
+game();
 
-    <title>Rock paper scissors game</title>
-  </head>
-  <body>
-    <script type="text/javascript">
-      let computerScore = 0;
-      let playerScore = 0;
-      
-      game();
-      function game()
-      {
-        for(let i = 1; i < 6; i++)
-        {
-          const playerSelection = window.prompt('Take your pick: rock, paper o scissors').toLowerCase();
-          const computerSelection = computerPlay();
-          console.log('ROUND ' + i);
-          console.log('Player selection: ' + playerSelection);
-          console.log('Computer selection: ' + computerSelection);
-          console.log(playRound(playerSelection, computerSelection));
-          console.log('Score:');
-          console.log('Player: ' + playerScore + ' Computer: ' + computerScore);
-        }
+function game()
+{
+    for(let i = 1; i < 6; i++)
+    {
+        const playerSelection = prompt('Take your pick: rock, paper o scissors');
+        const computerSelection = computerPlay();
+        console.log('ROUND ' + i);
+        console.log('Player: ' + playerSelection + ' Computer: ' + computerSelection);
+        console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+        console.log('Player: ' + playerScore + ' Computer: ' + computerScore);
+    }
 
         if(playerScore > computerScore)
           console.log('Player Won');
@@ -95,6 +85,3 @@
         else if(computerSelection === 2)
           return 'scissors';
       }
-    </script>
-  </body>
-</html>
